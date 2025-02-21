@@ -1,0 +1,56 @@
+﻿using Identity.Application.Commands.CreateUser;
+using Identity.Application.Commands.UpdateUser;
+using Identity.Application.DTOs;
+using Identity.Application.Queries.GetUserById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Identity.Api.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public AuthController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpPost("signup")]
+        public async Task<ActionResult<Guid>> CreateUser(CreateUserCommand command)
+        {
+            var result = await _mediator.Send(command);
+            if (result.IsFailure)
+                return BadRequest(result.Error);
+
+            return Ok(result.Value);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserDto>> GetUser(Guid id)
+        {
+            var query = new GetUserByIdQuery(id);
+            var result = await _mediator.Send(query);
+
+            if (result.IsFailure)
+                return NotFound(result.Error);
+
+            return Ok(result.Value);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(Guid id, UpdateUserCommand command)
+        {
+            if (id != command.Id)
+                return BadRequest();
+
+            var result = await _mediator.Send(command);
+            if (result.IsFailure)
+                return BadRequest(result.Error);
+
+            return NoContent();
+        }
+    }
+}
