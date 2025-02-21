@@ -1,11 +1,12 @@
 using Identity.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-ConfigurationManager configuration = builder.Configuration;
+Microsoft.Extensions.Configuration.ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.AddAuthentication(options =>
 {
@@ -29,16 +30,18 @@ builder.Services.AddAuthentication(options =>
 });
 
 // Register services
-builder.Services.Configure<IISServerOptions>(options => options.AutomaticAuthentication = false);
+//builder.Services.Configure<IISServerOptions>(options => options.AutomaticAuthentication = false);
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 
 // Configure Swagger/OpenAPI
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerService();
+builder.Services.AddCors();
 
 // Register Infrastructure Services
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load("Identity.Application")));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
@@ -48,7 +51,13 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 app.UseRouting();
-
+app.UseCors(options =>
+{
+    options
+        .WithOrigins(configuration.GetValue<string>("AllowedHosts"))
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+});
 app.MapOpenApi();
 app.UseSwagger(); // Load Swagger before auth
 app.UseSwaggerUI();
