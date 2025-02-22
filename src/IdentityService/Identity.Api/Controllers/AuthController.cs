@@ -1,4 +1,5 @@
 ﻿using Identity.Application.Commands.CreateUser;
+using Identity.Application.Commands.SigninUser;
 using Identity.Application.Commands.UpdateUser;
 using Identity.Application.DTOs;
 using Identity.Application.Queries.GetUserById;
@@ -19,7 +20,17 @@ namespace Identity.Api.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<ActionResult<Guid>> CreateUser(CreateUserCommand command)
+        public async Task<ActionResult<AuthResponseDto>> CreateUser(CreateUserCommand command)
+        {
+            var result = await _mediator.Send(command);
+            if (result.IsFailure)
+                return BadRequest(result.Error);
+
+            return Ok(result.Value);
+        }
+
+        [HttpPost("signin")]
+        public async Task<ActionResult<AuthResponseDto>> SignInUser(SigninUserCommand command)
         {
             var result = await _mediator.Send(command);
             if (result.IsFailure)

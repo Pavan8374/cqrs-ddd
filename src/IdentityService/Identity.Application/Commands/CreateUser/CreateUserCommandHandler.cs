@@ -5,11 +5,7 @@ using Identity.Domain.Entities;
 using Identity.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace Identity.Application.Commands.CreateUser
 {
