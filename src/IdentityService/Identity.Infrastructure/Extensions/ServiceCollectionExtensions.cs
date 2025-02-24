@@ -1,5 +1,6 @@
-﻿using Identity.Domain.Events;
+﻿using Identity.Domain.Events.Common;
 using Identity.Domain.Interfaces;
+using Identity.Domain.Interfaces.Common;
 using Identity.Infrastructure.Context;
 using Identity.Infrastructure.Data;
 using Identity.Infrastructure.Repositories;

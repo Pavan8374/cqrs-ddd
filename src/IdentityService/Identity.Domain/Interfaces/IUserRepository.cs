@@ -1,4 +1,5 @@
 ﻿using Identity.Domain.Entities;
+using Identity.Domain.Interfaces.Common;
 
 namespace Identity.Domain.Interfaces
 {

@@ -1,5 +1,5 @@
 ﻿using Identity.Domain.Common;
-using Identity.Domain.Interfaces;
+using Identity.Domain.Interfaces.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace Identity.Infrastructure.Repositories

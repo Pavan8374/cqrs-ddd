@@ -1,6 +1,7 @@
 ﻿using Identity.Domain.Common;
 using Identity.Domain.Events;
-using Identity.Domain.ValueObjects;
+using Identity.Domain.Events.Users;
+using Identity.Domain.ValueObjects.Users;
 
 namespace Identity.Domain.Entities
 {

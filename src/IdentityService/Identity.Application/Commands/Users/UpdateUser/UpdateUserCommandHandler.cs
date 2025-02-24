@@ -1,12 +1,13 @@
 ﻿using Identity.Domain.Common;
 using Identity.Domain.Entities;
 using Identity.Domain.Interfaces;
+using Identity.Domain.Interfaces.Common;
 using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Identity.Application.Commands.UpdateUser
+namespace Identity.Application.Commands.Users.UpdateUser
 {
     public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Result<Guid>>
     {

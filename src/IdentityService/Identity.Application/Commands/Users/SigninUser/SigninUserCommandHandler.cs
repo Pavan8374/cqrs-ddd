@@ -1,12 +1,12 @@
 ﻿using Identity.Application.Common;
-using Identity.Application.DTOs;
+using Identity.Application.DTOs.Users;
 using Identity.Domain.Common;
 using Identity.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace Identity.Application.Commands.SigninUser
+namespace Identity.Application.Commands.Users.SigninUser
 {
     public class SigninUserCommandHandler : IRequestHandler<SigninUserCommand, Result<AuthResponseDto>>
     {

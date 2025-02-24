@@ -1,6 +1,6 @@
 ﻿using Identity.Domain.Common;
-using Identity.Domain.Events;
-using Identity.Domain.Interfaces;
+using Identity.Domain.Events.Common;
+using Identity.Domain.Interfaces.Common;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Identity.Infrastructure.Data
