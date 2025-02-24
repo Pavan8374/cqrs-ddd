@@ -1,6 +1,6 @@
 ﻿using Identity.Domain.Common;
 
-namespace Identity.Domain.Events
+namespace Identity.Domain.Events.Users
 {
     public class UserCreatedEvent : DomainEvent
     {

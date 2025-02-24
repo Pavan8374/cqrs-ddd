@@ -1,6 +1,6 @@
 ﻿using Identity.Domain.Common;
 
-namespace Identity.Domain.Interfaces
+namespace Identity.Domain.Interfaces.Common
 {
     public interface IRepository<T> where T : AggregateRoot
     {

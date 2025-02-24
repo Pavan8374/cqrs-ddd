@@ -1,8 +1,8 @@
-﻿using Identity.Application.Commands.CreateUser;
-using Identity.Application.Commands.SigninUser;
-using Identity.Application.Commands.UpdateUser;
-using Identity.Application.DTOs;
-using Identity.Application.Queries.GetUserById;
+﻿using Identity.Application.Commands.Users.CreateUser;
+using Identity.Application.Commands.Users.SigninUser;
+using Identity.Application.Commands.Users.UpdateUser;
+using Identity.Application.DTOs.Users;
+using Identity.Application.Queries.Users.GetUserById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

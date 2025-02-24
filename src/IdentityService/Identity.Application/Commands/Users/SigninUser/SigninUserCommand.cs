@@ -1,8 +1,8 @@
-﻿using Identity.Application.DTOs;
+﻿using Identity.Application.DTOs.Users;
 using Identity.Domain.Common;
 using MediatR;
 
-namespace Identity.Application.Commands.SigninUser
+namespace Identity.Application.Commands.Users.SigninUser
 {
     public class SigninUserCommand : IRequest<Result<AuthResponseDto>>
     {

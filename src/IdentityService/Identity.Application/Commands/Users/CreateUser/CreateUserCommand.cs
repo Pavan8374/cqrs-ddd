@@ -1,8 +1,8 @@
-﻿using Identity.Application.DTOs;
+﻿using Identity.Application.DTOs.Users;
 using Identity.Domain.Common;
 using MediatR;
 
-namespace Identity.Application.Commands.CreateUser
+namespace Identity.Application.Commands.Users.CreateUser
 {
     public class CreateUserCommand : IRequest<Result<AuthResponseDto>>
     {

@@ -1,5 +1,5 @@
-﻿using Identity.Domain.Events;
-using Identity.Domain.Interfaces;
+﻿using Identity.Domain.Events.Users;
+using Identity.Domain.Interfaces.Common;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

@@ -1,6 +1,6 @@
 ﻿using Identity.Domain.Common;
 
-namespace Identity.Domain.Events
+namespace Identity.Domain.Events.Common
 {
     public interface IDomainEventService
     {

@@ -1,8 +1,8 @@
-﻿using Identity.Application.DTOs;
+﻿using Identity.Application.DTOs.Users;
 using Identity.Domain.Common;
 using MediatR;
 
-namespace Identity.Application.Queries.GetUserById
+namespace Identity.Application.Queries.Users.GetUserById
 {
     public class GetUserByIdQuery : IRequest<Result<UserDto>>
     {
