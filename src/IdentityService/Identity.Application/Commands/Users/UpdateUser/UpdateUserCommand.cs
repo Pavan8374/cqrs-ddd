@@ -1,6 +1,9 @@
-﻿namespace Identity.Application.DTOs
+﻿using Identity.Domain.Common;
+using MediatR;
+
+namespace Identity.Application.Commands.Users.UpdateUser
 {
-    public class UserDto
+    public class UpdateUserCommand : IRequest<Result<Guid>>
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

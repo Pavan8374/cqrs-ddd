@@ -1,13 +1,14 @@
 ﻿using Identity.Application.Common;
-using Identity.Application.DTOs;
+using Identity.Application.DTOs.Users;
 using Identity.Domain.Common;
 using Identity.Domain.Entities;
 using Identity.Domain.Interfaces;
+using Identity.Domain.Interfaces.Common;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 
-namespace Identity.Application.Commands.CreateUser
+namespace Identity.Application.Commands.Users.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result<AuthResponseDto>>
     {

@@ -1,4 +1,4 @@
-﻿using Identity.Domain.Interfaces;
+﻿using Identity.Domain.Interfaces.Common;
 using Microsoft.AspNetCore.Http;
 
 namespace Identity.Infrastructure.Context

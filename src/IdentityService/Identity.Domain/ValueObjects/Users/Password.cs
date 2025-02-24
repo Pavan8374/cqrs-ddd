@@ -1,6 +1,6 @@
 ﻿using Identity.Domain.Common;
 
-namespace Identity.Domain.ValueObjects
+namespace Identity.Domain.ValueObjects.Users
 {
     public class Password : ValueObject
     {
